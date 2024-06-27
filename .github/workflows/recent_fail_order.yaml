@@ -102,12 +102,12 @@ jobs:
         with:
           path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranking_data
           key: pytest-ranking-cache-${{ github.workflow }}-${{ runner.os }}-${{ matrix.python }}-${{ github.run_id }}
-    - uses: actions/upload-artifact@v4
-      if: always()
-      with:
-          name: pytest-ranking upload test report json
-          path: |
-            ./test-report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+            name: pytest-ranking upload test report json
+            path: |
+              ./test-report.json
 
       - name: Upload coverage
         uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3.1.4
